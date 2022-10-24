@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numOfCourses = parseInt(prompt("How many courses did you finish ?", "0"));
+        if (isNaN(numOfCourses)){
+            document.write("<p>Invalid Input !</p>");
+        }
+        else{
+            let courseMarks = [];
+            let counter=0; // initialization
+            for(let iterate=0 ; iterate<numOfCourses ; iterate++){
+                courseMarks[iterate] = parseFloat(prompt("Enter your mark for course" + (iterate+1))); // can be a Int too.
+                counter+=courseMarks[iterate];
+                // We can also use 
+                //courseMarks.push(parseFloat(prompt("Enter your mark for course" + (iterate+1))));
+            }
+            let i=0;
+            while( i < numOfCourses ){
+                document.write("<p>"+courseMarks[i]+"<p>");
+                i++;
+            }
+            let average = counter/numOfCourses;
+            if( average>=90 && average<=100){
+                document.write("<p>Your final average is "+average.toFixed(2)+". Your grade is <strong> A+ <strong> </p>");
+            }else if(average>=80 && average <=89){ // no need to precise <=89 but it's written on the rules so I add them
+            document.write("<p>Your final average is "+average.toFixed(2)+". Your grade is <strong> B <strong> </p>");
+            }else if( average >=70 && average<=79){
+                document.write("<p>Your final average is "+average.toFixed(2)+". Your grade is <strong> C <strong> </p>");
+            }else if (average>=60 && average <=69){
+                document.write("<p>Your final average is "+average.toFixed(2)+". Your grade is <strong> D <strong> </p>");
+            }else if(average<60 && average>=0){ // we can precise >=0.
+                document.write("<p>Your final average is "+average.toFixed(2)+". Your grade is <strong> F <strong> </p>");
+            } else{
+                document.write("<p>Sorry, All the marks have to be from minimum 0 to maximum 100!</p>");
+            }
+        
+        }
+    </script>
+</body>
+</html>
